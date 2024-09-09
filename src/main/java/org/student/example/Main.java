@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Student student1 = new Student("Dipali", "Talware", 10);
         Student student2 = new Student("Bob", "Tal", 11);
@@ -53,6 +53,24 @@ public class Main {
             System.out.println("Courses Found: "+courseFound);
         }
         else System.out.println("no courses found");
+
+        Sack sack = new Sack();
+        sack.add(10);
+        sack.add(20);
+        sack.add(30);
+        sack.add(40);
+        sack.add(50);
+
+        sack.print();
+
+        sack.removeLast();
+        sack.print();
+
+        sack.removeByIndex(2);
+        sack.print();
+
+        sack.removeByIndex(10);
+        sack.print();
 
     }
 }
