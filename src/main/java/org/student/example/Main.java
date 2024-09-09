@@ -10,6 +10,15 @@ public class Main {
         Student student2 = new Student("Bob", "Tal", 11);
         Student student3 = new Student("Jane", "Mili", 15);
 
+
+        Course course1 = new Course("JAVA", "llm", "B100");
+        Course course2 = new Course("Springboot", "llm", "B101");
+        Course course3 = new Course("AWS", "llm", "B102");
+
+        student1.addCourses(course1);
+        student1.addCourses(course2);
+        student2.addCourses(course3);
+
         List<Student> studentList = new ArrayList<>();
         studentList.add(student1);
         studentList.add(student2);
@@ -36,8 +45,14 @@ public class Main {
         } else System.out.println("Student not found");
 
         System.out.println("Task: remove the student");
-       boolean removedStudent = school.removeStudent(10);
-        System.out.println("student removed: "+ removedStudent);
+        boolean removedStudent = school.removeStudent(10);
+        System.out.println("student removed: " + removedStudent);
+
+        List<Course> courseFound = school.getCoursesByStudentID(11);
+        if(courseFound != null){
+            System.out.println("Courses Found: "+courseFound);
+        }
+        else System.out.println("no courses found");
 
     }
 }

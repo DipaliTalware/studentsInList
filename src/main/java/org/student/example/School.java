@@ -8,21 +8,21 @@ import java.util.List;
 
 public class School {
 
-    List<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 
     public void addStudents(Student student) {
         this.students.add(student);
     }
 
-    public void addStudents(List<Student> students){
+    public void addStudents(List<Student> students) {
         this.students.addAll(students);
     }
 
 
-//    Step 5: Add a method to find a student by their ID. The found student should be returned.
-    public Student searchStudent(int studentID){
-        for(Student s: students){
-            if(studentID == s.getStudentID()){
+    //    Step 5: Add a method to find a student by their ID. The found student should be returned.
+    public Student searchStudent(int studentID) {
+        for (Student s : students) {
+            if (studentID == s.getStudentID()) {
                 return s;
             }
         }
@@ -31,9 +31,18 @@ public class School {
 
 //    Step 6: Create a method to remove a student from the school.
 
-    public boolean removeStudent(int studentID){
-      return students.removeIf(s -> studentID == s.getStudentID());
+    public boolean removeStudent(int studentID) {
+        return students.removeIf(s -> studentID == s.getStudentID());
     }
+
+    public List<Course> getCoursesByStudentID(int studentID){
+      Student foundStudent =  searchStudent(studentID);
+      if(foundStudent != null){
+          return foundStudent.getCourses();
+      }
+      else return null;
+    }
+
 
     @Override
     public String toString() {
